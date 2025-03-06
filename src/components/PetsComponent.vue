@@ -1,6 +1,5 @@
 <template>
-    <div class="petslist">
-        <tr>
+        <tr class="petslist">
             <td>
                 {{ name }}
             </td>
@@ -20,7 +19,6 @@
                 {{ note }}
             </td>
         </tr>
-    </div>
 </template>
 
 

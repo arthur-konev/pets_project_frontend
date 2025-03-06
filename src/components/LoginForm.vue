@@ -30,17 +30,21 @@ export default {
     };
   },
   methods: {
-    onLogin(){
-        this.$http.post("auth/jwt/create/", {
-            username: this.username,
-            password: this.password
-        }).then(response => {
-            localStorage.access_token = response.data.access
+    async onLogin(){
+      await this.$store.dispatch('obtainToken', {
+        "username": this.username,
+        "password": this.password
         })
-        this.$router.push("/")
+        // this.$http.post("auth/jwt/create/", {
+        //     username: this.username,
+        //     password: this.password
+        // }).then(response => {
+        //     localStorage.access_token = response.data.access
+        // })
+      this.$router.push("/")
     },
     onCancel (){
-        this.$router.back()
+      this.$router.push("/")
     }
   }
 }
